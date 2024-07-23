@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachin Yadav - Digital Marketing Head</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f8ff;
+        }
+        header, footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .nav {
+            background-color: #008080;
+            overflow: hidden;
+        }
+        .nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .nav a:hover {
+            background-color: #005050;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2em 0;
+        }
+        .section {
+            margin-bottom: 2em;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h2 {
+            border-bottom: 2px solid #004080;
+            padding-bottom: 0.5em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e0e0e0;
+            margin: 0.5em 0;
+            padding: 0.5em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        ul li:hover {
+            background: #d3d3d3;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 1em;
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        form input, form textarea {
+            margin-bottom: 1em;
+            padding: 0.5em;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            padding: 0.5em;
+            background-color: #004080;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        form button:hover {
+            background-color: #003060;
+        }
+        #serviceForm {
+            background: #f9f9f9;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: block; /* Ensure the form is displayed */
+        }
+        .contact-buttons a {
+            display: inline-block;
+            margin: 0.5em;
+            padding: 0.5em 1em;
+            color: white;
+            background-color: #008080;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        .contact-buttons a:hover {
+            background-color: #005050;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .mySlides {
+            display: none;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+    <script>
+        function showForm(service) {
+            document.getElementById('selectedService').value = service;
+            document.getElementById('serviceForm').style.display = 'block';
+            document.getElementById('serviceForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sachin Yadav</h1>
+        <p>Digital Marketing Head</p>
+    </header>
+    <div class="nav">
+        <a href="#services">Services</a>
+        <a href="#work">My Work</a>
+        <a href="#about">About Me</a>
+        <a href="#team">Our Team</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <section class="section" id="services">
+            <h2>Services I Provide</h2>
+            <ul>
+                <li onclick="showForm('Social Media Manager')">Social Media Manager</li>
+                <li onclick="showForm('Graphic Designing')">Graphic Designing</li>
+                <li onclick="showForm('Facebook AdWords')">Facebook AdWords</li>
+                <li onclick="showForm('Google Ads')">Google Ads</li>
+                <li onclick="showForm('Google My Business')">Google My Business</li>
+                <li onclick="showForm('Influencer Marketing')">Influencer Marketing</li>
+                <li onclick="showForm('Website Development')">Website Development</li>
+                <li onclick="showForm('SMS Marketing')">SMS Marketing</li>
+                <li onclick="showForm('Radio and TV Ads')">Radio and TV Ads</li>
+            </ul>
+        </section>
+        <section class="section" id="work">
+            <h2>My Work</h2>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="https://via.placeholder.com/800x400" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="https://via.placeholder.com/800x400" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="https://via.placeholder.com/800x400" style="width:100%">
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>I am Sachin Yadav, the Digital Marketing Head with a passion for driving innovation and excellence in the digital space. My mission is to provide top-notch digital marketing services that help businesses grow and achieve their goals.</p>
+        </section>
+        <section class="section" id="team">
+            <h2>Our Team</h2>
+            <p>Our team comprises dedicated professionals passionate about digital marketing and customer service. We work collaboratively to ensure the best outcomes for our clients and continuously strive to exceed expectations.</p>
+        </section>
+        <section class="section" id="contact">
+            <h2>Contact for Services</h2>
+            <p>Phone: 9115678557</p>
+            <div class="contact-buttons">
+                <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                <a href="mailto:sachinyadav988873@gmail.com">Email</a>
+            </div>
+            <div id="serviceForm">
+                <form action="https://formsubmit.co/sachinyadav988873@gmail.com" method="post">
+                    <input type="hidden" name="_subject" value="New Service Inquiry">
+                    <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I will get back to you soon.">
+                    <input type="hidden" id="selectedService" name="selectedService">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Sachin Yadav. All rights reserved.</p>
+    </footer>
+</body>
+</html>
